@@ -1,0 +1,13 @@
+version: '2'
+services:
+  botapp:
+    image: "mfrankl/messagebroadcast:2"
+    restart: always
+    volumes:
+     - ./settings.properties:/code/MessageBroadcast/target/classes/settings.properties
+  redis:
+    image: "redis:alpine"
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - ./data/:/data/
