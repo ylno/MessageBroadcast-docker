@@ -4,7 +4,8 @@ services:
     image: "mfrankl/messagebroadcast:2"
     restart: always
     volumes:
-     - ./settings.properties:/code/MessageBroadcast/target/classes/settings.properties
+      #     - ./settings.properties:/code/MessageBroadcast/target/classes/settings.properties
+      - ./settings.properties:/code/
   redis:
     image: "redis:alpine"
     restart: always
