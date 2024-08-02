@@ -1,11 +1,11 @@
 version: '2'
 services:
   botapp:
-    image: "mfrankl/messagebroadcast:2"
+    #    image: "mfrankl/messagebroadcast:2"
+    build: .
     restart: always
-    volumes:
-      #     - ./settings.properties:/code/MessageBroadcast/target/classes/settings.properties
-      - ./settings.properties:/code/
+    env_file:
+      - .env
   redis:
     image: "redis:alpine"
     restart: always

@@ -1,16 +1,7 @@
-FROM mfrankl/javamaven:latest
-
-WORKDIR /code
-
-#RUN ["git", "clone", "https://github.com/ylno/MessageBroadcast.git"]
-#
-#WORKDIR /code/MessageBroadcast
-#
-#RUN ["mvn", "package"]
-
-# Prepare by downloading dependencies
-
-COPY javaexecutor.sh javaexecutor.sh
-
-#EXPOSE 4567
-CMD sh ./javaexecutor.sh
+FROM node:20
+RUN apt-get update && apt-get install -y git
+WORKDIR /usr/src/app
+RUN git clone https://github.com/ylno/MessageBroadcastNode.git .
+RUN npm install
+EXPOSE 3000
+CMD ["npm", "run", "start"]
